@@ -78,7 +78,7 @@ puts 'Feching existing JIRA issues'
 loop do
     begin
         issues_results = jira_client.Issue.jql(
-            "project = BOOM AND resolution = Unresolved ORDER BY updated DESC",
+            "project = #{JIRA_PROJECT_NAME} AND resolution = Unresolved ORDER BY updated DESC",
             max_results: 200,
             start_at: offset
         )
